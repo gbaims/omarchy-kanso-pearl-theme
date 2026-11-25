@@ -1,0 +1,51 @@
+# Kansō Pearl — lazygit theme
+#
+# Not applied by Omarchy: lazygit has no theme template in the Quattro
+# pipeline. Point your lazygit config at it manually, e.g.
+#
+#   lazygit -ucf ~/.local/state/omarchy/current/theme/lazygit.yml,~/.config/lazygit/config.yml
+
+gui:
+  theme:
+    # ui.fg
+    defaultFgColor:
+      - "#22262d"
+    # syn.fun — focused panel border
+    activeBorderColor:
+      - "#4d699b"
+      - bold
+    # ui.whitespace — unfocused panel borders
+    inactiveBorderColor:
+      - "#cacac7"
+    # diag.hint — border while a search is active
+    searchingActiveBorderColor:
+      - "#5e857a"
+      - bold
+    # syn.keyword — keybinding hints on the bottom bar
+    optionsTextColor:
+      - "#624c83"
+    # ui.bg_visual
+    selectedLineBgColor:
+      - "#dddddb"
+    inactiveViewSelectedLineBgColor:
+      - "#e2e1df"
+    # ui.bg_search / syn.fun — cherry-picked commits
+    cherryPickedCommitFgColor:
+      - "#4d699b"
+    cherryPickedCommitBgColor:
+      - "#b5cbd2"
+    # syn.special1 — marked base commit
+    markedBaseCommitFgColor:
+      - "#836f4a"
+    markedBaseCommitBgColor:
+      - "#f9d791"
+    # vcs.removed
+    unstagedChangesColor:
+      - "#c84053"
+
+  authorColors:
+    "*": "#624c83"
+
+  branchColors:
+    main: "#4d699b"
+    master: "#4d699b"

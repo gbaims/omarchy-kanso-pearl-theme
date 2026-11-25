@@ -1,0 +1,101 @@
+# Kansō Pearl — btop theme
+#
+# Replaces the file Omarchy generates from `default/themed/btop.theme.tpl`.
+# Symlinked to ~/.config/btop/themes/current.theme by the installer.
+
+# Left empty so the terminal background (and its opacity/blur) shows through.
+theme[main_bg]=""
+
+# Main text color
+theme[main_fg]="#22262d"
+
+# Title color for boxes
+theme[title]="#22262d"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#4d699b"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#c9cbd1"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#22262d"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#9f9f99"
+
+# Color of text appearing on top of graphs
+theme[graph_text]="#545464"
+
+# Background color of the percentage meters
+theme[meter_bg]="#dddddb"
+
+# Misc colors for processes box including mini cpu graphs and details status text
+theme[proc_misc]="#4d699b"
+
+# CPU, Memory, Network, Proc box outline colors
+theme[cpu_box]="#624c83"
+theme[mem_box]="#6f894e"
+theme[net_box]="#c84053"
+theme[proc_box]="#4d699b"
+
+# Box divider line and small boxes line color
+theme[div_line]="#cacac7"
+
+# Temperature graph color (Green -> Yellow -> Red)
+theme[temp_start]="#6f894e"
+theme[temp_mid]="#cc6d00"
+theme[temp_end]="#c84053"
+
+# CPU graph colors (Teal -> Blue -> Violet)
+theme[cpu_start]="#597b75"
+theme[cpu_mid]="#4d699b"
+theme[cpu_end]="#624c83"
+
+# Mem/Disk free meter
+theme[free_start]="#624c83"
+theme[free_mid]="#4d699b"
+theme[free_end]="#597b75"
+
+# Mem/Disk cached meter
+theme[cached_start]="#4d699b"
+theme[cached_mid]="#597b75"
+theme[cached_end]="#624c83"
+
+# Mem/Disk available meter
+theme[available_start]="#836f4a"
+theme[available_mid]="#cc6d00"
+theme[available_end]="#c84053"
+
+# Mem/Disk used meter (Green -> Teal -> Blue)
+theme[used_start]="#6f894e"
+theme[used_mid]="#597b75"
+theme[used_end]="#4d699b"
+
+# Download graph colors
+theme[download_start]="#836f4a"
+theme[download_mid]="#cc6d00"
+theme[download_end]="#c84053"
+
+# Upload graph colors (Green -> Teal -> Blue)
+theme[upload_start]="#6f894e"
+theme[upload_mid]="#597b75"
+theme[upload_end]="#4d699b"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#597b75"
+theme[process_mid]="#4d699b"
+theme[process_end]="#624c83"
+
+# Graph gradient, background -> foreground. The generated theme ends this ramp
+# on foreground / light_foreground / bright_foreground, which is not monotonic
+# and makes the graph banding reverse near the top. These are Kansō's own
+# background and gray shades, in strictly decreasing lightness.
+theme[gradient_color_0]="#f2f1ef"
+theme[gradient_color_1]="#e2e1df"
+theme[gradient_color_2]="#dddddb"
+theme[gradient_color_3]="#cacac7"
+theme[gradient_color_4]="#9f9f99"
+theme[gradient_color_5]="#6d6d69"
+theme[gradient_color_6]="#545464"
+theme[gradient_color_7]="#22262d"

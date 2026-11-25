@@ -1,0 +1,259 @@
+# Kansō Pearl — Helix theme
+#
+# Hand-written replacement for the file Omarchy would otherwise generate from
+# `default/themed/helix.toml.tpl`. Omarchy copies theme-provided configs into
+# the next-theme directory before rendering templates and never overwrites an
+# existing file, so this one wins.
+#
+# The generated version can only reach the 8 ANSI slots + `muted`, which forces
+# every surface (cursorline, ruler, highlight, focused text) onto `color0` —
+# and `color0` *is* the background, so those surfaces are invisible. This file
+# uses the full Kansō pearl palette instead and mirrors the semantic mapping in
+# `lua/kanso/themes.lua` (`pearl`), so Helix matches the Neovim colorscheme.
+
+# ── Syntax ───────────────────────────────────────────────────────────────────
+
+"comment" = { fg = "gray", modifiers = ["italic"] }
+
+"variable" = "fg"
+"variable.builtin" = { fg = "violet", modifiers = ["italic"] }
+"variable.parameter" = "indigo"
+"variable.other.member" = "violet"
+
+"constant" = "orange"
+"constant.builtin" = "orange"
+"constant.builtin.boolean" = "orange"
+"constant.numeric" = "pink"
+"constant.character" = "green"
+"constant.character.escape" = "yellow"
+
+"string" = "green"
+"string.regexp" = "yellow"
+"string.special" = "yellow"
+"string.special.symbol" = "violet"
+"string.special.url" = { fg = "yellow", modifiers = ["underlined"] }
+
+"type" = "aqua"
+"type.builtin" = "aqua"
+"type.parameter" = "aqua"
+"type.enum" = "aqua"
+"type.enum.variant" = "orange"
+
+"function" = "blue"
+"function.builtin" = "blue"
+"function.method" = "blue"
+"function.special" = "blue"
+"function.macro" = "gray_dark"
+
+"constructor" = "yellow"
+"module" = "aqua"
+"namespace" = "aqua"
+"label" = "violet"
+"attribute" = "orange"
+"special" = "yellow"
+
+"tag" = "yellow"
+"tag.builtin" = "yellow"
+
+"keyword" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control.conditional" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control.repeat" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control.return" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control.exception" = { fg = "violet", modifiers = ["italic"] }
+"keyword.control.import" = "gray_dark"
+"keyword.directive" = "gray_dark"
+"keyword.function" = { fg = "violet", modifiers = ["italic"] }
+"keyword.storage" = { fg = "violet", modifiers = ["italic"] }
+"keyword.storage.type" = { fg = "violet", modifiers = ["italic"] }
+"keyword.storage.modifier" = { fg = "violet", modifiers = ["italic"] }
+"keyword.operator" = "gray"
+
+"operator" = "gray"
+"punctuation" = "gray"
+"punctuation.delimiter" = "gray"
+"punctuation.bracket" = "gray"
+"punctuation.special" = "yellow"
+
+# ── Markup ───────────────────────────────────────────────────────────────────
+#
+# Kansō links every heading level to `Function`. Six identically blue levels
+# read as flat in a terminal, so levels are graded across the palette's cool
+# range instead — still Kansō colors, but the hierarchy is legible.
+
+"markup.heading.1" = { fg = "blue", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "violet", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "indigo", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "aqua", modifiers = ["bold"] }
+"markup.heading.5" = "teal_dim"
+"markup.heading.6" = "gray"
+"markup.heading.marker" = "gray"
+
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+
+"markup.list" = "gray"
+"markup.list.checked" = "green2"
+"markup.list.unchecked" = "gray_light"
+
+"markup.link" = "blue"
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "blue"
+"markup.link.label" = "indigo"
+
+"markup.raw" = "green"
+"markup.raw.inline" = "green"
+"markup.raw.block" = "green"
+"markup.quote" = { fg = "indigo", modifiers = ["italic"] }
+
+# ── Diff ─────────────────────────────────────────────────────────────────────
+
+"diff.plus" = "green2"
+"diff.minus" = "red2"
+"diff.delta" = "yellow2"
+"diff.delta.moved" = "teal_dim"
+
+# ── Editor ───────────────────────────────────────────────────────────────────
+
+# Left transparent so the terminal background — themed identically by Omarchy —
+# shows through, keeping window opacity and blur working.
+"ui.background" = { }
+"ui.background.separator" = { fg = "bg_line" }
+
+"ui.text" = "fg"
+"ui.text.focus" = { fg = "fg", bg = "bg_sel", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "gray_light" }
+"ui.text.directory" = { fg = "blue" }
+"ui.text.info" = { fg = "fg_dim" }
+
+"ui.window" = { fg = "bg_line" }
+
+"ui.gutter" = { }
+"ui.gutter.selected" = { bg = "bg_dim" }
+"ui.linenr" = { fg = "gray_light" }
+"ui.linenr.selected" = { fg = "fg", modifiers = ["bold"] }
+
+"ui.cursorline.primary" = { bg = "bg_dim" }
+"ui.cursorline.secondary" = { bg = "bg_dim" }
+"ui.cursorcolumn.primary" = { bg = "bg_dim" }
+"ui.cursorcolumn.secondary" = { bg = "bg_dim" }
+
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.primary" = { fg = "bg", bg = "fg" }
+"ui.cursor.normal" = { fg = "bg", bg = "fg" }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "fg" }
+"ui.cursor.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.select" = { fg = "bg", bg = "violet" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "violet" }
+"ui.cursor.match" = { fg = "orange2", modifiers = ["bold"] }
+
+# Background only: forcing a foreground here would flatten every syntax color
+# inside the selection to a single tone, which the generated theme does.
+"ui.selection" = { bg = "bg_visual" }
+"ui.selection.primary" = { bg = "bg_visual" }
+
+"ui.highlight" = { bg = "bg_search" }
+"ui.highlight.frameline" = { bg = "diff_text" }
+
+"ui.virtual" = { fg = "nontext" }
+"ui.virtual.ruler" = { bg = "bg_sel" }
+"ui.virtual.indent-guide" = { fg = "bg_sel" }
+"ui.virtual.whitespace" = { fg = "bg_line" }
+"ui.virtual.wrap" = { fg = "gray_light" }
+"ui.virtual.inlay-hint" = { fg = "nontext" }
+"ui.virtual.inlay-hint.type" = { fg = "nontext" }
+"ui.virtual.inlay-hint.parameter" = { fg = "nontext" }
+"ui.virtual.jump-label" = { fg = "red3", modifiers = ["bold"] }
+
+# ── Statusline ───────────────────────────────────────────────────────────────
+#
+# Kansō's Neovim statusline is flat (dimmed text, no band). The mode variants
+# below only take effect with `editor.color-modes = true`.
+
+"ui.statusline" = { fg = "fg_dim", bg = "bg_dim" }
+"ui.statusline.inactive" = { fg = "gray_light", bg = "bg_dim" }
+"ui.statusline.normal" = { fg = "bg", bg = "blue", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "violet", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "bg_line" }
+
+"ui.bufferline" = { fg = "gray_light", bg = "bg_dim" }
+"ui.bufferline.background" = { bg = "bg_dim" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg", underline = { color = "blue", style = "line" } }
+
+# ── Popups, menus, pickers ───────────────────────────────────────────────────
+#
+# Kansō gives floats the same background as the editor and relies on a border.
+# Helix draws no popup border by default (`editor.popup-border = "none"`), so
+# these sit one step darker to stay distinguishable.
+
+"ui.popup" = { fg = "fg_alt", bg = "bg_dim" }
+"ui.popup.info" = { fg = "fg_dim", bg = "bg_dim" }
+"ui.help" = { fg = "fg_alt", bg = "bg_dim" }
+"ui.menu" = { fg = "fg_alt", bg = "bg_dim" }
+"ui.menu.selected" = { fg = "fg", bg = "bg_sel", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "gray_light", bg = "bg_sel" }
+"ui.picker.header" = { fg = "fg_dim" }
+"ui.picker.header.column" = { fg = "gray_light" }
+"ui.picker.header.column.active" = { fg = "blue", modifiers = ["bold"] }
+
+# ── Debugger ─────────────────────────────────────────────────────────────────
+
+"ui.debug" = { fg = "orange2" }
+"ui.debug.breakpoint" = { fg = "red3" }
+"ui.debug.active" = { fg = "orange2" }
+
+# ── Diagnostics ──────────────────────────────────────────────────────────────
+
+"diagnostic.error" = { underline = { color = "red3", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "orange2", style = "curl" } }
+"diagnostic.info" = { underline = { color = "teal_dim", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "aqua2", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+error = "red3"
+warning = "orange2"
+info = "teal_dim"
+hint = "aqua2"
+
+# ── Palette ──────────────────────────────────────────────────────────────────
+#
+# Names on the right are the entries in `lua/kanso/colors.lua` these come from.
+
+[palette]
+bg = "#f2f1ef"         # pearlWhite0  — ui.bg
+bg_dim = "#e2e1df"     # pearlWhite1  — ui.bg_p1 / ui.bg_p2
+bg_sel = "#dddddb"     # pearlWhite2  — ui.indent_line
+bg_line = "#cacac7"    # pearlWhite3  — ui.whitespace
+bg_visual = "#c9cbd1"  # pearlViolet3 — matches colors.toml `selection`
+bg_search = "#b5cbd2"  # pearlBlue2   — ui.bg_search
+
+fg = "#22262d"         # pearlBlack0  — ui.fg
+fg_dim = "#545464"     # pearlBlack1  — ui.fg_dim
+fg_alt = "#43436c"     # pearlBlack2  — ui.pmenu.fg
+gray = "#6d6d69"       # pearlGray3   — syn.comment / operator / punct
+gray_dark = "#5c6068"  # pearlGray2   — syn.preproc
+gray_light = "#9f9f99" # pearlGray4   — ui.cursor_line_nr_foreground
+nontext = "#a09cac"    # pearlViolet1 — ui.nontext
+
+green = "#6f894e"      # pearlGreen   — syn.string
+green2 = "#6e915f"     # pearlGreen2  — vcs.added
+pink = "#b35b79"       # pearlPink    — syn.number
+orange = "#cc6d00"     # pearlOrange  — syn.constant
+orange2 = "#e98a00"    # pearlOrange2 — diag.warning
+yellow = "#836f4a"     # pearlYellow2 — syn.regex / syn.special1
+yellow2 = "#de9800"    # pearlYellow3 — vcs.changed
+red2 = "#d7474b"       # pearlRed2    — vcs.removed
+red3 = "#e82424"       # pearlRed3    — diag.error
+violet = "#624c83"     # pearlViolet4 — syn.keyword / syn.identifier
+indigo = "#5d57a3"     # pearlBlue5   — syn.parameter
+blue = "#4d699b"       # pearlBlue4   — syn.fun
+teal_dim = "#5a7785"   # pearlTeal3   — diag.info
+aqua = "#597b75"       # pearlAqua    — syn.type
+aqua2 = "#5e857a"      # pearlAqua2   — diag.hint
+
+diff_text = "#f9d791"  # pearlYellow4 — diff.text
+
